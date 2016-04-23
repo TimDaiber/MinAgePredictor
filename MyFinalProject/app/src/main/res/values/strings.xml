@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyFinalProject</string>
+    <string name="app_name">Min Age Calculator</string>
     <string name="action_settings">Settings</string>
     <string-array name="Weight">
         <item>Underweight</item>
@@ -14,12 +14,32 @@
     </string-array>
     <string-array name="Food">
         <item>Very Healthy</item>
-        <item>Healty</item>
+        <item>Healthy</item>
         <item>Normal</item>
         <item>Unhealthy</item>
         <item>Fast food only</item>
 
 
     </string-array>
-    <string name="title_activity_main2">Main2Activity</string>
+
+    <string-array name="Country">
+        <item>First World</item>
+        <item>Second World</item>
+        <item>Third World</item>
+    </string-array>
+
+    <string-array name="Alcohol">
+        <item>Never</item>
+        <item>Monthly</item>
+        <item>Weekly</item>
+        <item>Like a Fish</item>
+    </string-array>
+
+    <string-array name="Outlook">
+        <item>Optimistic</item>
+        <item>Neutral</item>
+        <item>Pessimistic</item>
+    </string-array>
+
+    <string name="title_activity_main2">Calculated</string>
 </resources>

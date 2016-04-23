@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         spinner = (Spinner) findViewById(R.id.spinner3);
         adapter = ArrayAdapter.createFromResource(this,R.array.Food,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -81,7 +82,51 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        spinner = (Spinner) findViewById(R.id.spinner4);
+        adapter = ArrayAdapter.createFromResource(this,R.array.Country,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getBaseContext(), parent.getItemIdAtPosition(position) + " selected", Toast.LENGTH_LONG).show();
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        spinner = (Spinner) findViewById(R.id.spinner5);
+        adapter = ArrayAdapter.createFromResource(this,R.array.Alcohol,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getBaseContext(), parent.getItemIdAtPosition(position) + " selected", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        spinner = (Spinner) findViewById(R.id.spinner6);
+        adapter = ArrayAdapter.createFromResource(this,R.array.Outlook,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getBaseContext(), parent.getItemIdAtPosition(position) + " selected", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -100,11 +145,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void  buttonOnClick(View v){
-        age=80;
+        age=85;
         Button button = (Button) v;
         CheckBox smoker = (CheckBox) findViewById(R.id.smoker);
         if(smoker.isChecked()){
-            age = age -20;
+            age = age -13;
             setAge1(age);
         }
 
@@ -116,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
             age = age;
         }
         else if(myweight.equals("Obese")){
-            age = age-10;
+            age = age-7;
         }
         else if(myweight.equals("Overweight")){
             age = age-5;
@@ -128,11 +173,68 @@ public class MainActivity extends AppCompatActivity {
         Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
         String gender = spinner2.getSelectedItem().toString();
         if(gender.equals("Man")){
+            age = age-7;
+        }
+
+        Spinner spinner3 = (Spinner) findViewById(R.id.spinner3);
+        String eating = spinner3.getSelectedItem().toString();
+        if(eating.equals("Very Healthy")){
+            age = age+2;
+        }
+        else if(eating.equals("Healthy")){
+            age = age+1;
+        }
+        else if(eating.equals("Normal")){
+            age = age;
+        }
+        else if(eating.equals("Unhealthy")){
+            age=age-2;
+            setAge1(age);
+        }
+        else if(eating.equals("Fast food only")){
+            age=age-4;
+            setAge1(age);
+        }
+        Spinner spinner4 = (Spinner) findViewById(R.id.spinner4);
+        String country = spinner4.getSelectedItem().toString();
+        if(country.equals("First World")){
+            age = age;
+        }
+        else if(country.equals("Second World")){
             age = age-6;
         }
-        int newage = age;
+        else if(country.equals("Third World")){
+            age = age-10;
+        }
+        Spinner spinner5 = (Spinner) findViewById(R.id.spinner5);
+        String alcohol = spinner5.getSelectedItem().toString();
+        if(alcohol.equals("Never")){
+            age = age;
+        }
+        else if(alcohol.equals("Monthly")){
+            age = age-1;
+        }
+        else if(alcohol.equals("Weekly")){
+            age = age-3;
+        }
+        else if(alcohol.equals("Like a Fish")) {
+            age = age - 6;
+            setAge1(age);
+        }
+        Spinner spinner6 = (Spinner) findViewById(R.id.spinner6);
+        String outlook = spinner6.getSelectedItem().toString();
+        if(outlook.equals("Optimistic")){
+            age = age;
+        }
+        else if(outlook.equals("Neutral")){
+            age = age-1;
+        }
+        else if(outlook.equals("Pessimistic")){
+            age = age-2;
+        }
         //MainActivity main = new MainActivity();
         //main.setAge1(age);
+        int newage = age;
         ((Button)v).setText("" + newage);
         Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
         intent.putExtra("parameter name",newage);
