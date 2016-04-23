@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">MyFinalProject</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="Weight">
+        <item>Underweight</item>
+        <item>Average</item>
+        <item>Over weight</item>
+        <item>Obese</item>
+    </string-array>
+    <string-array name="Gender">
+        <item>Man</item>
+        <item>Woman</item>
+
+    </string-array>
+    <string-array name="Food">
+        <item>Very Healthy</item>
+        <item>Healty</item>
+        <item>Normal</item>
+        <item>Unhealthy</item>
+        <item>Fast food only</item>
+
+
+    </string-array>
+    <string name="title_activity_main2">Main2Activity</string>
+</resources>
