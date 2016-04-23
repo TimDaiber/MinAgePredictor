@@ -1,5 +1,7 @@
 package com.example.tim.myfinalproject;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,7 +21,16 @@ public class MainActivity extends AppCompatActivity {
 
     Spinner spinner;
     ArrayAdapter<CharSequence> adapter;
-    private int age = 80;
+
+    public int getAge1() {
+        return age;
+    }
+
+    public void setAge1(int age) {
+        this.age = age;
+    }
+
+    public int age;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,13 +98,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void  buttonOnClick(View v){
 
+    public void  buttonOnClick(View v){
+        age=80;
         Button button = (Button) v;
         CheckBox smoker = (CheckBox) findViewById(R.id.smoker);
         if(smoker.isChecked()){
             age = age -20;
-
+            setAge1(age);
         }
 
 
@@ -111,13 +123,20 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(myweight.equals("Underweight")){
             age=age-3;
+            setAge1(age);
         }
         Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
         String gender = spinner2.getSelectedItem().toString();
         if(gender.equals("Man")){
             age = age-6;
         }
-        ((Button)v).setText( ""+age);
+        int newage = age;
+        //MainActivity main = new MainActivity();
+        //main.setAge1(age);
+        ((Button)v).setText("" + newage);
+        Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
+        intent.putExtra("parameter name",newage);
+        startActivity(intent);
     }
 
     @Override
