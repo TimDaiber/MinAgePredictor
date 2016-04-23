@@ -18,7 +18,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    DatabaseHelper myDB;
     Spinner spinner;
     ArrayAdapter<CharSequence> adapter;
 
@@ -140,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        myDB = new DatabaseHelper(this);
     }
 
 
@@ -261,5 +262,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onbutton2click(View v){
+        Button button2 = (Button) findViewById(R.id.button2);
+
+      //  Intent intent = new Intent(getApplicationContext(), Main3Activity.class);
+
+       // startActivity(intent);
     }
 }
