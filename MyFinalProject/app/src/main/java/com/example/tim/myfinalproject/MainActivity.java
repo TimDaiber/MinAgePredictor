@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseHelper myDB;
     Spinner spinner;
     ArrayAdapter<CharSequence> adapter;
-
+    private String issmoker;
     public int getAge1() {
         return age;
     }
@@ -151,7 +151,11 @@ public class MainActivity extends AppCompatActivity {
         CheckBox smoker = (CheckBox) findViewById(R.id.smoker);
         if(smoker.isChecked()){
             age = age -13;
+             issmoker = "Yes";
             setAge1(age);
+        }
+        else{
+            issmoker = "No";
         }
 
 
@@ -236,6 +240,13 @@ public class MainActivity extends AppCompatActivity {
         //MainActivity main = new MainActivity();
         //main.setAge1(age);
         int newage = age;
+        boolean isInserted = myDB.inssrData(issmoker,myweight,gender,eating,country,alcohol,outlook,newage);
+
+        if(isInserted =true){
+            Toast.makeText(MainActivity.this,"Data Inserted",Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(MainActivity.this,"Data not Inserted",Toast.LENGTH_LONG).show();
+        }
         ((Button)v).setText("" + newage);
         Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
         intent.putExtra("parameter name",newage);
@@ -271,4 +282,6 @@ public class MainActivity extends AppCompatActivity {
 
        // startActivity(intent);
     }
+
+
 }
