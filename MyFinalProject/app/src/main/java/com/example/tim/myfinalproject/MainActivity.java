@@ -281,9 +281,9 @@ public class MainActivity extends AppCompatActivity {
     public void onbutton2click(View v){
         Button button2 = (Button) findViewById(R.id.button2);
 
-      //  Intent intent = new Intent(getApplicationContext(), Main3Activity.class);
+        Intent intent = new Intent(getApplicationContext(), BMI.class);
 
-       // startActivity(intent);
+        startActivity(intent);
     }
 
 

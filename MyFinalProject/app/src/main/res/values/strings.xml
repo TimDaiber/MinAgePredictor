@@ -42,4 +42,5 @@
     </string-array>
 
     <string name="title_activity_main2">Calculated</string>
+    <string name="title_activity_bmi">BMI</string>
 </resources>
