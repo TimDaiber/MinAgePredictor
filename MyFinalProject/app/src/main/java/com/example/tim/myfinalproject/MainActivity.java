@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner spinner;
     ArrayAdapter<CharSequence> adapter;
     private String issmoker;
+    private String name = "Tim";
     public int getAge1() {
         return age;
     }
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         spinner = (Spinner) findViewById(R.id.spinner2);
         adapter = ArrayAdapter.createFromResource(this,R.array.Gender,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -237,10 +239,11 @@ public class MainActivity extends AppCompatActivity {
         else if(outlook.equals("Pessimistic")){
             age = age-2;
         }
+
         //MainActivity main = new MainActivity();
         //main.setAge1(age);
         int newage = age;
-        boolean isInserted = myDB.inssrData(issmoker,myweight,gender,eating,country,alcohol,outlook,newage);
+        boolean isInserted = myDB.inssrData(name,issmoker,myweight,gender,eating,country,alcohol,outlook,newage);
 
         if(isInserted =true){
             Toast.makeText(MainActivity.this,"Data Inserted",Toast.LENGTH_LONG).show();
