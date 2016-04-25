@@ -85,4 +85,25 @@ public class Main2Activity extends AppCompatActivity {
         builder.setNegativeButton("Ok",null);
         builder.show();
     }
+    public void averageAge(View v){
+        Cursor res = myDB.getAverageAge();
+        if(res.getCount()==0){
+            // show message
+            showMessage("Error","No Data Fount");
+            return;
+        }
+        else
+        {
+            StringBuffer buffer = new StringBuffer();
+
+            while(res.moveToNext())
+            {
+                buffer.append("Average Age of gathered date : \n" + res.getString(0)+"\n");
+
+
+                // SHow it
+                showMessage("Data",buffer.toString());
+            }
+        }
+    }
 }

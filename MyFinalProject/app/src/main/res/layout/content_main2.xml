@@ -35,8 +35,19 @@
         android:layout_height="wrap_content"
         android:text="View Details"
         android:id="@+id/button3"
+        android:onClick="viewData"
         android:layout_below="@+id/calculated"
         android:layout_alignRight="@+id/calculated"
         android:layout_alignEnd="@+id/calculated"
-        android:onClick="viewData" />
+        android:layout_marginTop="35dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Average Age of gathered data"
+        android:id="@+id/button6"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/button3"
+        android:layout_centerHorizontal="true"
+        android:onClick="averageAge" />
 </RelativeLayout>

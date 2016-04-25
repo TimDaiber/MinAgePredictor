@@ -67,4 +67,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor res = db.rawQuery("select * from "+ TABLE_NAME ,null);
         return  res;
     }
+    public Cursor getAverageAge(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select AVG(age) from "+ TABLE_NAME ,null);
+        return  res;
+    }
 }
