@@ -268,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
         //MainActivity main = new MainActivity();
         //main.setAge1(age);
         int newage = age;
+
         boolean isInserted = myDB.inssrData(name,issmoker,myweight,gender,eating,country,alcohol,outlook,newage);
 
         if(isInserted =true){
@@ -275,7 +276,9 @@ public class MainActivity extends AppCompatActivity {
         }else{
             Toast.makeText(MainActivity.this,"Data not Inserted",Toast.LENGTH_LONG).show();
         }
-        ((Button)v).setText("" + weightclass);
+
+
+        //((Button)v).setText("" + weightclass);
         Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
         intent.putExtra("parameter name",newage);
         startActivity(intent);
