@@ -1,12 +1,14 @@
 package com.example.tim.myfinalproject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -22,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
     Spinner spinner;
     ArrayAdapter<CharSequence> adapter;
     private String issmoker;
-    private String name = "Tim";
+    private String name = "Anonymous";
+    private String weightclass;
     public int getAge1() {
         return age;
     }
@@ -142,9 +146,29 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        myDB = new DatabaseHelper(this);
-    }
 
+
+        /*
+        Intent intent2 = getIntent();
+        weightclass = intent2.getStringExtra("Weight class");
+
+
+        if(weightclass!=null){
+            Spinner spinner1 = (Spinner) findViewById(R.id.spinner);
+            spinner1.setSelection(((ArrayAdapter<String>)spinner1.getAdapter()).getPosition(weightclass));
+        }
+        */
+        myDB = new DatabaseHelper(this);
+        //showAlert();
+
+    }
+    /*
+    public void showAlert(){
+
+        LayoutInflater.from(MainActivity.this).inflate(resouce, root);
+        AlertDialog.Builder alertBuilder = new AlertDialog().Builder(MainActivity.this);
+        alertBuilder.setView(lay)
+    }*/
 
 
     public void  buttonOnClick(View v){
@@ -239,7 +263,8 @@ public class MainActivity extends AppCompatActivity {
         else if(outlook.equals("Pessimistic")){
             age = age-2;
         }
-
+        EditText edit3 = (EditText)findViewById(R.id.editText3);
+        name = edit3.getText().toString();
         //MainActivity main = new MainActivity();
         //main.setAge1(age);
         int newage = age;
@@ -250,7 +275,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             Toast.makeText(MainActivity.this,"Data not Inserted",Toast.LENGTH_LONG).show();
         }
-        ((Button)v).setText("" + newage);
+        ((Button)v).setText("" + weightclass);
         Intent intent = new Intent(getApplicationContext(), Main2Activity.class);
         intent.putExtra("parameter name",newage);
         startActivity(intent);

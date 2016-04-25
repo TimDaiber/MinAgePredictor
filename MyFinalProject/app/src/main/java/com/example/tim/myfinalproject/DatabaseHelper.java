@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "prediction5.db";
+    public static final String DATABASE_NAME = "prediction6.db";
     public static final String TABLE_NAME = "prediction_table";
 
     public static final String COL_1 = "id";

@@ -82,6 +82,7 @@ public class Main2Activity extends AppCompatActivity {
         builder.setCancelable(true);
         builder.setTitle(title);
         builder.setMessage(Message);
+        builder.setNegativeButton("Ok",null);
         builder.show();
     }
 }
